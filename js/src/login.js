@@ -28,7 +28,7 @@ function validateLogin(evt) {
         }
 
         console.log("Login exitoso");
-        window.location = "./index.html";
+        window.location = "./loged.html";
         return true;
     } else {
 

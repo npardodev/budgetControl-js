@@ -3,33 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control de gastos - Login</title>
 
-    <title>Proyecto Final</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;600;900&display=swap" rel="stylesheet">
 
     <!-- Mi CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
-
-    <!-- Sweet Alert -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
-
-
-    <script src="./js/external/jsList/list.js"></script>
-    <script src="./js/external/jsList/list.min.js"></script>
-    <script src="./js/src/mylist.js"></script>
-
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
 
     <!-- jQuery -->
     <script src="./js/external/jQuery/jquery-3.6.0.js"></script>
@@ -37,204 +22,62 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-center social_icon">
+                        <span class="wallet"><ion-icon name="wallet-outline"></ion-icon></span>
+                    </div>
 
-    <!-- Carga previa-->
-    <div id="load">
-        <h2>Cargando</h2>
-    </div>
+                    <h3 class="d-flex justify-content-center">Iniciar sesión</h3>
+                </div>
+                <div class="card-body">
 
-    <!-- Barra Lateral-->
-    <div class="d-flex">
-        <div id="sidebar-container" class="bg-primary">
-            <div class="logo">
-                <h4 class="title text-light">Control de Presupuesto</h4>
-            </div>
-            <div class="menu">
-                <a href="#/tablero" class="d-block p-3 text-light">
-                    <ion-icon name="apps-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Board"> Tablero</span></a>
+                    <form id="login-form">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input id="user" type="text" class="form-control" placeholder="Usuario">
 
-                <a href="#/presupuesto" class="d-block p-3 text-light">
-                    <ion-icon name="people-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Budgets">  Presupuesto</span></a>
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input id="password" type="password" class="form-control" placeholder="Contraseña">
+                        </div>
+                        <div class="row align-items-center remember">
+                            <input type="checkbox" id="checkGuardar">Recuerdame
+                        </div>
+                        <div class="form-group">
+                            <input id="btnsubmit" type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    </form>
 
-                <a href="#/gastos" class="d-block p-3 text-light">
-                    <ion-icon name="people-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Expenses">  Gastos</span></a>
-
-                <a href="#/ingresos" class="d-block p-3 text-light">
-                    <ion-icon name="people-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Income"> Ingresos</span></a>
-
-                <a href="#/estadisticas" class="d-block p-3 text-light">
-                    <ion-icon name="stats-chart-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Statistics"> Estadisticas </span></a>
-                <a href="#/cotizaciones" class="d-block p-3 text-light">
-                    <ion-icon name="cash-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Moneys"> Cotizaciones </span></a>
-                <a href="#/reportes" class="d-block p-3 text-light">
-                    <ion-icon name="document-text-outline" class="icono-menu"></ion-icon> - <span id="NAV_LINK_Reports"> Reportes </span></a>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a href="#">Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <!-- Iconos -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
-        <hr>
-
-
-        <!-- Navbar-->
-        <div class="w-100 h-100 ">
-            <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container">
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                </button>
-                    <form class="form-inline position-relative my-2 d-inline-block">
-
-                    </form>
-                    <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="navbar-nav ms-auto ">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./img/user.svg" class="img-fluid rounded-circle user mr-2 user-settings" alt=""> <span id="user" class="user-settings">Usuario</span></a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown09">
-                                    <li>
-                                        <a class="dropdown-item " href="#/datos"> <span id="NAV_LINK_Data">Mis Datos</span></a>
-                                    </li>
-                                    <li><a class="dropdown-item " href="#/configuracion"><span id="NAV_LINK_Configuration">Configuracion</span></a>
-                                        <div class="dropdown-divider"></div>
-                                        <li><a class="dropdown-item" href="#/cerrarSesion"><span id="NAV_LINK_Close_Session">Cerrar Sesion</span></a>
-                                </ul>
-                                </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </nav>
-
-            <section>
-                <div class="container py-2">
-                    <div class="d-flex flex-row-reverse">
-                        <div id="notification">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div id="content">
-                <section class="py-3">
-                    <div class="container px-3">
-                        <div class="row">
-
-                            <div class="col-lg-12">
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-3 d-flex stat my-1">
-                                                <div class="mx-auto row">
-                                                    <h1 id="KEY_Main_Title">Principales</h1>
-                                                    <div class="line"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 d-flex stat my-1">
-                                                <div class="mx-auto">
-                                                    <h5 id="KEY_Main_Presp_disp" class="text-muted">Presup. Disponible</h5>
-                                                    <h4 class="font-weiht-bold" id="presupuestoDisponible">$00,000</h4>
-                                                    <h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 d-flex stat my-1">
-                                                <div class="mx-auto">
-                                                    <h5 id="KEY_Main_Gastos_acum" class="text-muted">Gastos acumulados</h5>
-                                                    <h4 class="font-weiht-bold" id="presupuestoGastado">
-                                                        <ion-icon name="arrow-round-up"></ion-icon>$00,000</h4>
-                                                    <h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 d-flex stat my-1">
-                                                <div class="mx-auto">
-                                                    <h5 id="KEY_Main_Ingresos_acum" class="text-muted">Ingresos acumulados</h5>
-                                                    <h4 class="font-weiht-bold" id="presupuestoAcumulados">
-                                                        <ion-icon name="arrow-round-up"></ion-icon>$00,000</h4>
-                                                    <h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <!-- My javascript -->
+    <script src="./js/src/login.js"></script>
 
 
+    <!-- Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
 
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 
 
-
-
-
-                <div id="app"></div>
-
-            </div>
-
-
-            <!-- My javascript -->
-            <script src="./js/external/jQuery/jquery-3.6.0.js"></script>
-
-            <!-- JSPDF -->
-            <script src="./js/external/jsPDF/dist/jspdf.min.js"></script>
-
-            <!-- ionic Icons -->
-            <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
-
-
-            <!-- Popper and Bootstrap JS -->
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-
-            <!-- Charts JS -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0-rc.4/dist/chart.min.js" integrity="sha256-gHXcTsEmccvSgLhVh+tXu16msknOBS5Yx4RM6qdG0q4=" crossorigin="anonymous"></script>
-
-
-            <!-- JsPDF JS -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-            <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-            <script src="./js/src/mypdf.js"></script>
-
-            <!-- i18next JS -->
-            <script src="./js/external/i18next/i18next.js"></script>
-            <script src="./js/external/i18next/i18nextHttpBackend.js"></script>
-            <script src="./js/external/i18next/i18nextBrowserLanguageDetector.js"></script>
-
-            <!-- Templates -->
-            <script src="js/templates/tablero.js"></script>
-            <script src="js/templates/ingresos.js"></script>
-            <script src="js/templates/gastos.js"></script>
-            <script src="js/templates/estadisticas.js"></script>
-            <script src="js/templates/cotizaciones.js"></script>
-            <script src="js/templates/reportes.js"></script>
-            <script src="js/templates/configuracion.js"></script>
-            <script src="js/templates/error.js"></script>
-            <script src="js/templates/datos.js"></script>
-            <script src="js/templates/presupuestos.js"></script>
-
-            <!-- Translate -->
-            <script src="./translate/EN.js"></script>
-            <script src="./translate/ES.js"></script>
-            <script src="./translate/PT.js"></script>
-            <script src="./translate/FR.js"></script>
-            <script src="./translate/DE.js"></script>
-
-            <!-- Scripts -->
-            <script src="js/src/mygraphs.js"></script>
-            <script src="js/src/ui.js"></script>
-            <script src="js/src/utils.js"></script>
-            <script src="js/src/gastos.js"></script>
-            <script src="js/src/ingresos.js"></script>
-            <script src="js/src/cotizaciones.js"></script>
-            <script src="js/src/estadisticas.js"></script>
-            <script src="js/src/datos.js"></script>
-            <script src="js/src/router.js"></script>
-            <script src="js/src/traduccion.js"></script>
-            <script src="js/src/presupuestos.js"></script>
-            <script src="js/src/main.js"></script>
 
 </body>
 
