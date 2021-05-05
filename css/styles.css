@@ -1,0 +1,148 @@
+#load {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    background: url("../img/1.svg") no-repeat center center var(--primary);
+    color: white;
+}
+
+#load h2 {
+    position: fixed;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    top: 40%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -65px;
+}
+
+:root {
+    --primary: #464EB8;
+    --ligth: #6E65FF;
+}
+
+.bg-primary {
+    background-color: var(--primary)!important;
+}
+
+.bg-light {
+    background-color: var(--primary)!important;
+}
+
+.bg-mix {
+    background: linear-gradient(180deg, var(--ligth) 50%, var(--grey) 0);
+    border-left: 10px solid var white;
+}
+
+.btn {
+    border: 0;
+}
+
+* {
+    color: black;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 600;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    width: 40vh;
+}
+
+#sidebar-container .logo {
+    padding: .875rem 1.25rem;
+}
+
+#sidebar-container .menu {
+    border-right: 10px solid var(--ligth);
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: var(--ligth);
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.navbar {}
+
+.btn-search {
+    right: 5px;
+}
+
+.user {
+    max-width: 35px;
+}
+
+.user-settings {
+    max-width: 35px;
+    color: white;
+}
+
+.user-settings span {
+    color: white;
+}
+
+#content {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.stat {
+    border-rigth: 1px solid var(--grey);
+}
+
+.line {
+    height: 2px;
+    width: 50px;
+    background-color: #09E4A2;
+    margin-top: 26px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #43e995;
+    color: black;
+    border: 0 !important;
+}
+
+.menu span {
+    color: white;
+}
+
+.icono-menu {
+    color: white;
+}
+
+#notification {
+    height: 12px;
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none;
+}
